@@ -1,0 +1,9 @@
+Changes
+=======
+
+1.0 (unreleased)
+----------------
+
+* Created ``grokcore.Annotation`` by factoring annotation components,
+  grokkers and directives out of Grok.
+
