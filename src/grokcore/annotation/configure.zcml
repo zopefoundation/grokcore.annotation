@@ -3,6 +3,5 @@
 
   <include package="grokcore.annotation" file="meta.zcml" />
   <include package="zope.annotation" />
-  <include package="grokcore.component" />
 
 </configure>
