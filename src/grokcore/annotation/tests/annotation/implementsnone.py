@@ -11,7 +11,7 @@ be looked up with:
 
 """
 
-import grok
+import grokcore.annotation as grok
 
 class Mammoth(grok.Model):
     pass

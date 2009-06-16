@@ -36,8 +36,9 @@ setup(
                       'martian',
                       'zope.component',
                       'zope.interface',
+                      'zope.annotation',
                       'grokcore.component',
                       # for ftests:
-                      'zope.app.zcmlfiles',
+                      'z3c.testsetup',
                       ],
 )

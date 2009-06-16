@@ -29,7 +29,7 @@ def suiteFromPackage(name):
         if filename == '__init__.py':
             continue
 
-        dottedname = 'grok.tests.%s.%s' % (name, filename[:-3])
+        dottedname = 'grokcore.annotation.tests.%s.%s' % (name, filename[:-3])
         test = doctest.DocTestSuite(dottedname,
                                     setUp=setUpZope,
                                     tearDown=cleanUpZope,
@@ -42,11 +42,7 @@ def suiteFromPackage(name):
 
 def test_suite():
     suite = unittest.TestSuite()
-    for name in ['adapter', 'error', 'event', 'security', 'catalog',
-                 'zcml', 'utility', 'xmlrpc', 'json', 'container',
-                 'traversal', 'grokker', 'directive',
-                 'baseclass', 'annotation', 'application',
-                 'viewlet', 'testsetup', 'conflict']:
+    for name in ['annotation',]:
         suite.addTest(suiteFromPackage(name))
     return suite
 

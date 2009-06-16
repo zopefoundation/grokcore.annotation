@@ -28,7 +28,7 @@ the dotted name will obviously change)
 
 """
 
-import grok
+import grokcore.annotation as grok
 from zope import interface
 from BTrees.OOBTree import OOTreeSet
 

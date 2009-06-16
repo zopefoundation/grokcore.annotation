@@ -21,7 +21,7 @@ Regetting the adapter will yield the same annotation storage:
 
 """
 
-import grok
+import grokcore.annotation as grok
 from zope import interface
 from BTrees.OOBTree import OOTreeSet
 
@@ -39,7 +39,7 @@ class IBranding(interface.Interface):
 class Branding(grok.Annotation):
     grok.implements(IBranding)
 
-    def __init__(self): 
+    def __init__(self):
         self._brands = OOTreeSet()
 
     def addBrand(self, brand):

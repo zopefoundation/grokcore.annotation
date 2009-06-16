@@ -11,7 +11,7 @@ be registered for.  Ambiguities lead to errors:
   which one to use).
 """
 
-import grok
+import grokcore.annotation as grok
 from zope import interface
 
 class Mammoth(grok.Model):
