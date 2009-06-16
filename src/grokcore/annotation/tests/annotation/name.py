@@ -11,7 +11,8 @@ will be used as an annotation key:
   >>> ann = IImplicitName(manfred)
 
   >>> from zope.annotation.interfaces import IAnnotations
-  >>> 'grok.tests.annotation.name.ImplicitName' in IAnnotations(manfred)
+  >>> availables_ann = IAnnotations(manfred)
+  >>> 'grokcore.annotation.tests.annotation.name.ImplicitName' in availables_ann
   True
 
 Of course, annotation classes can explicity specify the name of the
@@ -21,7 +22,8 @@ you want to be able to move the class around during refactorings (then
 the dotted name will obviously change)
 
   >>> ann = IExplicitName(manfred)
-  >>> 'grok.tests.annotation.name.ExplicitName' in IAnnotations(manfred)
+  >>> availables_ann = IAnnotations(manfred)
+  >>> 'grokcore.annotation.tests.annotation.name.ExplicitName' in availables_ann
   False
   >>> 'mammoth.branding' in IAnnotations(manfred)
   True

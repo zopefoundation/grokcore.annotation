@@ -16,11 +16,11 @@
 
 from grokcore.component import *
 
-from grokcore.annotation.components import Annotation
+from grokcore.annotation.components import Annotation, Model
 
 # BBB These two functions are meant for test fixtures and should be
 # imported from grok.testing, not from grok.
-from grokcore.annotation.testing import grok, grok_component
+from grokcore.annotation.testing import grok
 
 # Our __init__ provides the grok API directly so using 'import grok' is enough.
 from grokcore.annotation.interfaces import IGrokcoreAnnotationAPI

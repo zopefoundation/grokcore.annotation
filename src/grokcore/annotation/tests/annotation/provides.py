@@ -14,7 +14,7 @@ It can then be looked up only using that one interface:
 
   >>> IAnotherOne(manfred)
   Traceback (most recent call last):
-  TypeError: ('Could not adapt', <grok.tests.annotation.provides.Mammoth object at ...>, <InterfaceClass grok.tests.annotation.provides.IAnotherOne>)
+  TypeError: ('Could not adapt', <grokcore.annotation.tests.annotation.provides.Mammoth object at ...>, <InterfaceClass grokcore.annotation.tests.annotation.provides.IAnotherOne>)
 
 
 """

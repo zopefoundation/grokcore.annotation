@@ -14,8 +14,18 @@
 """Base classes for Grok application components.
 
 """
+
+from zope.annotation.interfaces import IAttributeAnnotatable
 import persistent
+import grokcore.component
+
+
+class Model(grokcore.component.Context):
+    """Base class for an object which is able to handle annotations
+    """
+    grokcore.component.implements(IAttributeAnnotatable)
 
 
 class Annotation(persistent.Persistent):
-    """The base class for annotation classes in Grok applications."""
+    """The base class for annotation classes in Grok applications.
+    """

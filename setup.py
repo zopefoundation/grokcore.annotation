@@ -38,7 +38,9 @@ setup(
                       'zope.interface',
                       'zope.annotation',
                       'grokcore.component',
-                      # for ftests:
-                      'z3c.testsetup',
+                      'ZODB3',
+                      'zope.app.container',
+                      'zope.configuration',
+                      'zope.testing',
                       ],
-)
+    )

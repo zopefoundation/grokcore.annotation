@@ -6,7 +6,7 @@ be registered for.  Ambiguities lead to errors:
   >>> grok.testing.grok(__name__)
   Traceback (most recent call last):
   GrokError: <class
-  'grok.tests.annotation.implementsmany.MammothAnnotations'> is
+  'grokcore.annotation.tests.annotation.implementsmany.MammothAnnotations'> is
   implementing more than one interface (use grok.provides to specify
   which one to use).
 """
