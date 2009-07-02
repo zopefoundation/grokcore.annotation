@@ -16,6 +16,7 @@
 """
 
 from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.app.container import contained
 import persistent
 import grokcore.component
 
@@ -26,6 +27,6 @@ class Model(grokcore.component.Context):
     grokcore.component.implements(IAttributeAnnotatable)
 
 
-class Annotation(persistent.Persistent):
+class Annotation(persistent.Persistent, contained.Contained):
     """The base class for annotation classes in Grok applications.
     """

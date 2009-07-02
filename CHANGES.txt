@@ -4,7 +4,8 @@ Changes
 1.1 (unreleased)
 ----------------
 
-* ...
+* The annotation object become really a contained object to be aware
+  of its context [thefunny42 and trollfot].
 
 1.0.1 (2009-06-30)
 ------------------

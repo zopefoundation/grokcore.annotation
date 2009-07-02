@@ -17,8 +17,6 @@ from zope import interface, component
 
 from zope.annotation.interfaces import IAnnotations
 
-from zope.app.container.contained import contained
-
 import martian
 from martian import util
 
@@ -57,12 +55,11 @@ class AnnotationGrokker(martian.ClassGrokker):
                 result = factory()
                 annotations[name] = result
 
-            # Containment has to be set up late to allow containment
-            # proxies to be applied, if needed. This does not trigger
-            # an event and is idempotent if containment is set up
-            # already.
-            contained_result = contained(result, context, name)
-            return contained_result
+            if result.__parent__ is None:
+                result.__parent__ = context
+                result.__name__ = name
+
+            return result
 
         config.action(
             discriminator=('adapter', adapter_context, provides, ''),
