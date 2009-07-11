@@ -7,6 +7,8 @@ Changes
 * The annotation object become really a contained object to be aware
   of its context [thefunny42 and trollfot].
 
+* Brought versions.cfg into line with the 1.0 grok versions.cfg.
+
 1.0.1 (2009-06-30)
 ------------------
 
