@@ -1,7 +1,7 @@
 Changes
 =======
 
-1.1 (unreleased)
+1.1 (2009-09-18)
 ----------------
 
 * The annotation object become really a contained object to be aware
