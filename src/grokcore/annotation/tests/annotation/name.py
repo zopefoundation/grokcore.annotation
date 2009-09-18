@@ -28,6 +28,12 @@ the dotted name will obviously change)
   >>> 'mammoth.branding' in IAnnotations(manfred)
   True
 
+And the name is stored in __name__:
+
+  >>> ann.__name__
+  'mammoth.branding'
+
+
 """
 
 import grokcore.annotation as grok

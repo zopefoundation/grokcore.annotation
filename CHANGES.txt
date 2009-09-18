@@ -5,9 +5,11 @@ Changes
 ----------------
 
 * The annotation object become really a contained object to be aware
-  of its context [thefunny42 and trollfot].
+  of its context, and name.
 
-* Brought versions.cfg into line with the 1.0 grok versions.cfg.
+* Use 1.0b1 versions.cfg in Grok's release info instead of a local
+  copy; a local copy for all grokcore packages is just too hard to
+  maintain.
 
 1.0.1 (2009-06-30)
 ------------------

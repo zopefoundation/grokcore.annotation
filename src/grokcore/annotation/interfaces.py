@@ -13,8 +13,17 @@
 ##############################################################################
 """Grok interfaces
 """
+
 from zope import interface
 
-class IGrokcoreAnnotationAPI(interface.Interface):
+
+class IBaseClasses(interface.Interface):
+    """grokcore.annotation base classes.
+    """
     Annotation = interface.Attribute("Base class for persistent annotations.")
+
+
+class IGrokcoreAnnotationAPI(IBaseClasses):
+    """grokcore.annotation API description.
+    """
 

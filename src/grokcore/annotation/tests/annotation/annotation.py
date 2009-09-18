@@ -12,6 +12,18 @@ persistent annotation storage:
   >>> branding.addBrand('mine')
   >>> branding.addBrand('yours')
 
+We can access the context by using __parent__:
+
+  >>> branding.__parent__
+  <grokcore.annotation.tests.annotation.annotation.Mammoth object at ...>
+  >>> branding.__parent__ is manfred
+  True
+
+And the name with __name__, here the default one:
+
+  >>> branding.__name__
+  'grokcore.annotation.tests.annotation.annotation.Branding'
+
 Regetting the adapter will yield the same annotation storage:
 
   >>> brands = IBranding(manfred).getBrands()
