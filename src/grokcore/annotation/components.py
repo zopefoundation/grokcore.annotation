@@ -16,7 +16,7 @@
 """
 
 from zope.annotation.interfaces import IAttributeAnnotatable
-from zope.app.container import contained
+from zope.container import contained
 import persistent
 import grokcore.component
 

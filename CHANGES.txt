@@ -4,7 +4,7 @@ Changes
 1.2 (unreleased)
 ----------------
 
-* ...
+* Use zope.container instead of zope.app.container.
 
 1.1 (2009-09-18)
 ----------------
