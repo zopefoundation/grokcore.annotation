@@ -39,9 +39,10 @@ setup(
         'setuptools',
         'zope.annotation',
         'zope.component',
-        'zope.configuration',
         'zope.container',
         'zope.interface',
+        # The following two ought to be moved to [test].
+        'zope.configuration',
         'zope.testing',
         ],
     #extras_require={
