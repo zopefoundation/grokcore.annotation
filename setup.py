@@ -10,6 +10,12 @@ long_description = (
     read('CHANGES.txt')
     )
 
+tests_require = [
+    'zope.configuration',
+    'zope.testing',
+    ]
+
+
 setup(
     name='grokcore.annotation',
     version='1.2dev',
@@ -41,10 +47,7 @@ setup(
         'zope.component',
         'zope.container',
         'zope.interface',
-        # The following two ought to be moved to [test].
-        'zope.configuration',
-        'zope.testing',
         ],
-    #extras_require={
-    #    'test': []},
+    tests_require=tests_require,
+    extras_require={'test': tests_require},
     )
