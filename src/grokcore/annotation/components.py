@@ -29,4 +29,6 @@ class Model(grokcore.component.Context):
 
 class Annotation(persistent.Persistent, contained.Contained):
     """The base class for annotation classes in Grok applications.
+
+    Inherits from the :class:`persistent.Persistent` class.
     """
