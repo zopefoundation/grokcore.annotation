@@ -21,6 +21,7 @@ import martian
 from martian import util
 
 import grokcore.annotation
+from grokcore.component import util
 
 
 def default_annotation_provides(factory, module, **data):
@@ -63,7 +64,7 @@ class AnnotationGrokker(martian.ClassGrokker):
 
         config.action(
             discriminator=('adapter', adapter_context, provides, ''),
-            callable=component.provideAdapter,
+            callable=uti.provideAdapter,
             args=(getAnnotation,),
             )
         return True
