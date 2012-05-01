@@ -4,8 +4,9 @@ Changes
 1.3 (unreleased)
 ----------------
 
-- Made package comply to zope.org repository policy.
+- Use 'provideAdapter()` from grokcore.component.util.
 
+- Made package comply to zope.org repository policy.
 
 1.2 (2009-12-13)
 ----------------
