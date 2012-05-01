@@ -20,7 +20,6 @@ from zope.annotation.interfaces import IAnnotations
 import martian
 from martian import util
 
-import grokcore.component.util
 import grokcore.annotation
 
 def default_annotation_provides(factory, module, **data):
@@ -63,7 +62,7 @@ class AnnotationGrokker(martian.ClassGrokker):
 
         config.action(
             discriminator=('adapter', adapter_context, provides, ''),
-            callable=grokcore.component.util.provideAdapter,
+            callable=grokcore.component.provideAdapter,
             args=(getAnnotation,),
             )
         return True
