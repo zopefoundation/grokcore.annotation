@@ -40,7 +40,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'ZODB3',
-        'grokcore.component',
+        'grokcore.component >= 2.5dev',
         'martian',
         'setuptools',
         'zope.annotation',
