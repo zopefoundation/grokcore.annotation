@@ -19,10 +19,10 @@ from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.annotation.interfaces import IAnnotations
 from zope.container import contained
 from zope.interface import implements, providedBy
+from zope.component import getSiteManager
 from grokcore.annotation.interfaces import IAnnotationFactory
 import persistent
 import grokcore.component
-import zope.component
 
 
 class Model(grokcore.component.Context):
@@ -67,8 +67,8 @@ class AnnotationFactory(object):
 
 
 def queryAnnotation(context, interface):
-    manager = zope.component.getSiteManager()
+    manager = getSiteManager()
     factory = manager.adapters.lookup((providedBy(context),), interface)
-    if factory is None or not IAnnotationFactory.providedBy(factory):
+    if not IAnnotationFactory.providedBy(factory):
         return None
     return factory.get(context)
