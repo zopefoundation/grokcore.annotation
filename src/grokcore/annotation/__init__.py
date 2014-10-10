@@ -17,6 +17,7 @@
 from grokcore.component import *
 
 from grokcore.annotation.components import Annotation, Model
+from grokcore.annotation.components import queryAnnotation
 
 # BBB These two functions are meant for test fixtures and should be
 # imported from grok.testing, not from grok.

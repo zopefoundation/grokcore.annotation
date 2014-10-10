@@ -16,9 +16,13 @@
 """
 
 from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.annotation.interfaces import IAnnotations
 from zope.container import contained
+from zope.interface import implements, providedBy
+from grokcore.annotation.interfaces import IAnnotationFactory
 import persistent
 import grokcore.component
+import zope.component
 
 
 class Model(grokcore.component.Context):
@@ -32,3 +36,39 @@ class Annotation(persistent.Persistent, contained.Contained):
 
     Inherits from the :class:`persistent.Persistent` class.
     """
+
+
+class AnnotationFactory(object):
+    implements(IAnnotationFactory)
+
+    def __init__(self, factory, name):
+        self.factory = factory
+        self.name = name
+
+    def get(self, context):
+        """Return None if the annotation doesn't exists.
+        """
+        annotations = IAnnotations(context)
+        return annotations.get(self.name)
+
+    def __call__(self, context):
+        annotations = IAnnotations(context)
+        try:
+            result = annotations[self.name]
+        except KeyError:
+            result = self.factory()
+            annotations[self.name] = result
+
+        if result.__parent__ is None:
+            result.__parent__ = context
+            result.__name__ = self.name
+
+        return result
+
+
+def queryAnnotation(context, interface):
+    manager = zope.component.getSiteManager()
+    factory = manager.adapters.lookup((providedBy(context),), interface)
+    if factory is None or not IAnnotationFactory.providedBy(factory):
+        return None
+    return factory.get(context)

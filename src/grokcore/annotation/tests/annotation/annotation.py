@@ -4,10 +4,15 @@
   >>> from zope.annotation.attribute import AttributeAnnotations
   >>> component.provideAdapter(AttributeAnnotations)
 
+If you query an annotation that does exists you get None:
+
+  >>> manfred = Mammoth()
+  >>> grok.queryAnnotation(manfred, IBranding) is None
+  True
+
 We can adapt a model to an annotation interface and obtain a
 persistent annotation storage:
 
-  >>> manfred = Mammoth()
   >>> branding = IBranding(manfred)
   >>> branding.addBrand('mine')
   >>> branding.addBrand('yours')
@@ -31,11 +36,19 @@ Regetting the adapter will yield the same annotation storage:
   >>> brands
   ['mine', 'yours']
 
+Using getAnnotation will work too now:
+
+  >>> sorted(grok.queryAnnotation(manfred, IBranding).getBrands())
+  ['mine', 'yours']
+  >>>
+
+
 """
 
 import grokcore.annotation as grok
 from zope import interface
 from BTrees.OOBTree import OOTreeSet
+
 
 class Mammoth(grok.Model):
     pass

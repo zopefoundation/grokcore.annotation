@@ -23,7 +23,20 @@ class IBaseClasses(interface.Interface):
     Annotation = interface.Attribute("Base class for persistent annotations.")
 
 
+class IAnnotationFactory(interface.Interface):
+    factory = interface.Attribute('Class to create a new annotation')
+    name = interface.Attribute('Name of the annotation')
+
+    def get(context):
+        """Return the existing annotation or None if None exists.
+        """
+
+    def __call__(context):
+        """Return the existing annotation or create a new one.
+        """
+
+
 class IGrokcoreAnnotationAPI(IBaseClasses):
     """grokcore.annotation API description.
     """
-
+    queryAnnotation = interface.Attribute('Function to query an annotation')

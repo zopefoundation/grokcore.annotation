@@ -38,20 +38,24 @@ And the name is stored in __name__:
 
 import grokcore.annotation as grok
 from zope import interface
-from BTrees.OOBTree import OOTreeSet
+
 
 class Mammoth(grok.Model):
     pass
 
+
 class IExplicitName(interface.Interface):
     pass
+
 
 class IImplicitName(interface.Interface):
     pass
 
+
 class ExplicitName(grok.Annotation):
     grok.implements(IExplicitName)
     grok.name('mammoth.branding')
+
 
 class ImplicitName(grok.Annotation):
     grok.implements(IImplicitName)

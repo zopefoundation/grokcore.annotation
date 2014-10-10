@@ -13,21 +13,20 @@
 ##############################################################################
 """Grokkers for Grokcore Annotation component.
 """
-from zope import interface, component
-
-from zope.annotation.interfaces import IAnnotations
-
-import martian
 from martian import util
-
+from grokcore.annotation.components import AnnotationFactory
+from zope.interface import implementedBy
 import grokcore.annotation
+import martian
+
 
 def default_annotation_provides(factory, module, **data):
-    base_interfaces = interface.implementedBy(grokcore.annotation.Annotation)
-    factory_interfaces = interface.implementedBy(factory)
+    base_interfaces = implementedBy(grokcore.annotation.Annotation)
+    factory_interfaces = implementedBy(factory)
     real_interfaces = list(factory_interfaces - base_interfaces)
     util.check_implements_one_from_list(real_interfaces, factory)
     return real_interfaces[0]
+
 
 def default_annotation_name(factory, module, **data):
     return factory.__module__ + '.' + factory.__name__
@@ -44,27 +43,10 @@ class AnnotationGrokker(martian.ClassGrokker):
                       get_default=default_annotation_name)
 
     def execute(self, factory, config, adapter_context, provides, name, **kw):
-        @component.adapter(adapter_context)
-        @interface.implementer(provides)
-        def getAnnotation(context):
-            annotations = IAnnotations(context)
-            try:
-                result = annotations[name]
-            except KeyError:
-                result = factory()
-                annotations[name] = result
-
-            if result.__parent__ is None:
-                result.__parent__ = context
-                result.__name__ = name
-
-            return result
-
+        factory = AnnotationFactory(factory, name)
         config.action(
             discriminator=('adapter', adapter_context, provides, ''),
             callable=grokcore.component.provideAdapter,
-            args=(getAnnotation,),
+            args=(factory, (adapter_context,), provides, ''),
             )
         return True
-
-

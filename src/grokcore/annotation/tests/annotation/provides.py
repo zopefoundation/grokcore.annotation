@@ -21,16 +21,19 @@ It can then be looked up only using that one interface:
 
 import grokcore.annotation as grok
 from zope import interface
-from BTrees.OOBTree import OOTreeSet
+
 
 class Mammoth(grok.Model):
     pass
 
+
 class IOneInterface(interface.Interface):
     pass
 
+
 class IAnotherOne(interface.Interface):
     pass
+
 
 class MammothAnnotation(grok.Annotation):
     grok.implements(IOneInterface, IAnotherOne)

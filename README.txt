@@ -70,6 +70,10 @@ Base classes
 ``Model``
    Base class for a Model on which you want to use an annotation.
 
+``queryAnnotation(model, interface)``
+   Query the annotation on the given model for the given
+   interface. Return the annotation if found, None otherwise. This
+   will not *make* any write operation.
 
 In addition, the ``grokcore.annotation`` package exposes the
 `grokcore.component`_ API.
