@@ -27,9 +27,13 @@ class IAnnotationFactory(interface.Interface):
     factory = interface.Attribute('Class to create a new annotation')
     name = interface.Attribute('Name of the annotation')
 
-    def get(context):
+    def query(context):
         """Return the existing annotation or None if no annotaion
         was created before.
+        """
+
+    def delete(context):
+        """Delete the existing annotation on the context.
         """
 
     def __call__(context):
@@ -40,4 +44,5 @@ class IAnnotationFactory(interface.Interface):
 class IGrokcoreAnnotationAPI(IBaseClasses):
     """grokcore.annotation API description.
     """
-    queryAnnotation = interface.Attribute('Function to query an annotation')
+    queryAnnotation = interface.Attribute('Query an annotation or return None')
+    deleteAnnotation = interface.Attribute('Delete an annotation if it exists')

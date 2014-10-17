@@ -75,6 +75,9 @@ Base classes
    interface. Return the annotation if found, None otherwise. This
    will not *make* any write operation.
 
+``deleteAnnotation(model, interface)``
+   Look for the given annotation and delete it from the model.
+
 In addition, the ``grokcore.annotation`` package exposes the
 `grokcore.component`_ API.
 

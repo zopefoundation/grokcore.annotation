@@ -45,11 +45,18 @@ class AnnotationFactory(object):
         self.factory = factory
         self.name = name
 
-    def get(self, context):
+    def query(self, context):
         """Return None if the annotation doesn't exists.
         """
         annotations = IAnnotations(context)
         return annotations.get(self.name)
+
+    def delete(self, context):
+        annotations = IAnnotations(context)
+        if self.name in annotations:
+            del annotations[self.name]
+            return True
+        return False
 
     def __call__(self, context):
         annotations = IAnnotations(context)
@@ -71,4 +78,12 @@ def queryAnnotation(context, interface):
     factory = manager.adapters.lookup((providedBy(context),), interface)
     if not IAnnotationFactory.providedBy(factory):
         return None
-    return factory.get(context)
+    return factory.query(context)
+
+
+def deleteAnnotation(context, interface):
+    manager = getSiteManager()
+    factory = manager.adapters.lookup((providedBy(context),), interface)
+    if not IAnnotationFactory.providedBy(factory):
+        return False
+    return factory.delete(context)

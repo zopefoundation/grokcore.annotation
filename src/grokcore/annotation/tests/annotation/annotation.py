@@ -42,6 +42,14 @@ Using getAnnotation will work too now:
   ['mine', 'yours']
   >>>
 
+And you can delete an annotation:
+
+  >>> grok.deleteAnnotation(manfred, IBranding)
+  True
+  >>> grok.queryAnnotation(manfred, IBranding) is None
+  True
+
+
 
 """
 
