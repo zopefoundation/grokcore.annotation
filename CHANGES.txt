@@ -1,7 +1,7 @@
 Changes
 =======
 
-1.5 (unreleased)
+1.5 (2014-10-20)
 ----------------
 
 - Updating MANIFEST.in, fixing a brown paper bag release.
