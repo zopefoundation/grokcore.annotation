@@ -4,8 +4,7 @@ Changes
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Updating MANIFEST.in, fixing a brown paper bag release.
 
 1.4 (2014-10-17)
 ----------------
