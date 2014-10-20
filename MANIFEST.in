@@ -1,3 +1,3 @@
-recursive-include src/grokcore/view *.*
+recursive-include src/grokcore/annotation *.*
 include *.txt
 global-exclude *pyc
