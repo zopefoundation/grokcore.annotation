@@ -18,12 +18,14 @@ from zope.configuration.config import ConfigurationMachine
 from grokcore.component import zcml
 # Provide this import here for BBB reasons:
 
+
 def grok(module_name):
     config = ConfigurationMachine()
     zcml.do_grok('grokcore.component.meta', config)
     zcml.do_grok('grokcore.annotation.meta', config)
     zcml.do_grok(module_name, config)
     config.execute_actions()
+
 
 def warn(message, category=None, stacklevel=1):
     """Intended to replace warnings.warn in tests.
