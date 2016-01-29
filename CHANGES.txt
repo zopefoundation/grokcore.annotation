@@ -4,7 +4,7 @@ Changes
 1.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Update tests.
 
 
 1.5 (2014-10-20)
