@@ -49,5 +49,6 @@ setup(
         'zope.interface',
         ],
     tests_require=tests_require,
+    test_suite='grokcore.annotation.tests.test_grok.test_suite',
     extras_require={'test': tests_require},
     )

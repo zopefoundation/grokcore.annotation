@@ -1,0 +1,20 @@
+[run]
+branch = True
+source = grokcore.annotation
+
+[report]
+precision = 2
+omit = */interfaces.py
+       */interfaces/*
+       */tests.py
+       */tests/*
+       */testing.py
+
+[html]
+directory = htmlcov
+
+[paths]
+source =
+   src/grokcore/annotation
+   .tox/*/lib/python*/site-packages/grokcore/annotation
+
