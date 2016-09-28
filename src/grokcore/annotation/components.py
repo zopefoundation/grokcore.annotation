@@ -25,10 +25,10 @@ import persistent
 import grokcore.component
 
 
+@grokcore.component.implementer(IAttributeAnnotatable)
 class Model(grokcore.component.Context):
     """Base class for an object which is able to handle annotations
     """
-    grokcore.component.implements(IAttributeAnnotatable)
 
 
 class Annotation(persistent.Persistent, contained.Contained):
@@ -38,8 +38,8 @@ class Annotation(persistent.Persistent, contained.Contained):
     """
 
 
+@grokcore.component.implementer(IAnnotationFactory)
 class AnnotationFactory(object):
-    implements(IAnnotationFactory)
 
     def __init__(self, factory, name):
         self.factory = factory
