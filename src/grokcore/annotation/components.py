@@ -18,7 +18,7 @@
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.annotation.interfaces import IAnnotations
 from zope.container import contained
-from zope.interface import implements, providedBy
+from zope.interface import providedBy
 from zope.component import getSiteManager
 from grokcore.annotation.interfaces import IAnnotationFactory
 import persistent
