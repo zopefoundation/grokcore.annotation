@@ -21,7 +21,10 @@ checker = renormalizing.RENormalizing([
     # exceptions appear in traceback printouts.
     (re.compile(
         r"ConfigurationExecutionError: <class '([\w.]+)'>:"),
-        r'ConfigurationExecutionError: \1:')])
+        r'ConfigurationExecutionError: \1:'),
+    (re.compile(
+        r"^GrokError: "),
+        r"martian.error.GrokError: ")])
 
 
 def suiteFromPackage(name):

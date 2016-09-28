@@ -5,7 +5,7 @@ be looked up with:
 
   >>> grok.testing.grok(__name__)
   Traceback (most recent call last):
-  GrokError: <class 'grokcore.annotation.tests.annotation.implementsnone.Branding'>
+  martian.error.GrokError: <class 'grokcore.annotation.tests.annotation.implementsnone.Branding'>
   must implement at least one interface (use grok.implements to
   specify).
 
