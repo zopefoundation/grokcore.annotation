@@ -10,6 +10,11 @@ If you query an annotation that does exists you get None:
   >>> grok.queryAnnotation(manfred, IBranding) is None
   True
 
+If you query an annotation with an interface that does not match you get None:
+
+  >>> grok.queryAnnotation(manfred, None) is None
+  True
+
 We can adapt a model to an annotation interface and obtain a
 persistent annotation storage:
 
@@ -46,9 +51,21 @@ And you can delete an annotation:
 
   >>> grok.deleteAnnotation(manfred, IBranding)
   True
+
+If you try to delete it again, you get False:
+
+  >>> grok.deleteAnnotation(manfred, IBranding)
+  False
+
+If you try to query for a non existing annotation you get None:
+
   >>> grok.queryAnnotation(manfred, IBranding) is None
   True
 
+If you want to delete a non-matching annotation you get False:
+
+  >>> grok.deleteAnnotation(manfred, None)
+  False
 
 
 """
