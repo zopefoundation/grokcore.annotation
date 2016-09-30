@@ -22,9 +22,7 @@ checker = renormalizing.RENormalizing([
     (re.compile(
         r"ConfigurationExecutionError: <class '([\w.]+)'>:"),
         r'ConfigurationExecutionError: \1:'),
-    (re.compile(
-        r"^GrokError: "),
-        r"martian.error.GrokError: ")])
+    ])
 
 
 def suiteFromPackage(name):
@@ -44,7 +42,11 @@ def suiteFromPackage(name):
             setUp=setUpZope,
             tearDown=cleanUpZope,
             checker=checker,
-            optionflags=doctest.ELLIPSIS + doctest.NORMALIZE_WHITESPACE)
+            optionflags=(
+                doctest.ELLIPSIS +
+                doctest.NORMALIZE_WHITESPACE +
+                renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2)
+            )
 
         suite.addTest(test)
     return suite
