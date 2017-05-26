@@ -13,7 +13,7 @@ long_description = (
 tests_require = [
     'zope.configuration',
     'zope.schema',
-    'zope.testing',
+    'zope.testing > 4.6',
     ]
 
 
@@ -31,6 +31,14 @@ setup(
                  'Intended Audience :: Developers',
                  'License :: OSI Approved :: Zope Public License',
                  'Programming Language :: Python',
+                 'Programming Language :: Python :: 2',
+                 'Programming Language :: Python :: 2.7',
+                 'Programming Language :: Python :: 3',
+                 'Programming Language :: Python :: 3.4',
+                 'Programming Language :: Python :: 3.5',
+                 'Programming Language :: Python :: 3.6',
+                 'Programming Language :: Python :: Implementation :: CPython',
+                 'Programming Language :: Python :: Implementation :: PyPy',
                  'Framework :: Zope3',
                  ],
 
@@ -40,7 +48,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'ZODB3',
         'grokcore.component >= 2.5dev',
         'martian',
         'setuptools',
@@ -52,5 +59,6 @@ setup(
         'zope.location',
         ],
     tests_require=tests_require,
+    test_suite='grokcore.annotation.tests.test_grok.test_suite',
     extras_require={'test': tests_require},
     )

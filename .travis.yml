@@ -1,10 +1,20 @@
 language: python
 python:
     - 2.7
+    - 3.4
+    - 3.5
+    - 3.6
+    - pypy-5.4.1
 install:
-    - python bootstrap.py
-    - bin/buildout
+    - pip install -U pip setuptools
+    - pip install -U coveralls coverage
+    - pip install -U -e ".[test]"
 script:
-    - bin/test -v1
+    - coverage run -m zope.testrunner --test-path=src
+after_success:
+  - coveralls
+cache: pip
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
 notifications:
     email: false
