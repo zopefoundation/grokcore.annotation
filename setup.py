@@ -14,6 +14,7 @@ tests_require = [
     'zope.configuration',
     'zope.schema',
     'zope.testing > 4.6',
+    'zope.testrunner',
     ]
 
 
