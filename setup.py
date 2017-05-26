@@ -13,6 +13,7 @@ long_description = (
 tests_require = [
     'zope.configuration',
     'zope.testing > 4.6',
+    'zope.testrunner',
     ]
 
 
