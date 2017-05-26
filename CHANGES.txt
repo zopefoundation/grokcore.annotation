@@ -1,10 +1,10 @@
 Changes
 =======
 
-1.6 (unreleased)
+2.0 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Drop support of Python 2.6 and claim support for Python 3.4, 3.5, 3.6 and PyPy.
 
 
 1.5.1 (2016-01-29)
