@@ -43,7 +43,8 @@ Now the queryAnnotation will indeed return the annotations object:
   >>> grok.queryAnnotation(manfred, ILazy).lazy_attribute
   u'We have a value!'
 
-We can also delete the lazy annotation and all traces are gone:
+We can also delete the lazy annotation and the previously stored annotation
+now is gone:
 
   >>> grok.deleteAnnotation(manfred, ILazy)
   True
