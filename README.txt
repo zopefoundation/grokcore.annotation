@@ -1,9 +1,7 @@
-
 This package provides a support to simplify the use of annotations in
 Zope.
 
 .. contents::
-
 
 Setting up ``grokcore.annotation``
 ==================================
@@ -16,7 +14,6 @@ additional ZCML line you will need is::
 
 Put this somewhere near the top of your root ZCML file but below the
 line where you include ``grokcore.component``'s configuration.
-
 
 Example
 =======
@@ -55,8 +52,6 @@ Here a simple example of use of an annotation::
     # on the annotation
     livestock2.foo = "something"
 
-
-
 API Overview
 ============
 
@@ -78,9 +73,14 @@ Base classes
 ``deleteAnnotation(model, interface)``
    Look for the given annotation and delete it from the model.
 
+``LazyAnnotation``
+   Base class for an annotation. It only writes a database object when
+   explicitly setting values on the lazy properties.
+
+``LazyAnnotationProperty``
+   Property implementation that works with ``LazyAnnotation``.
+
 In addition, the ``grokcore.annotation`` package exposes the
 `grokcore.component`_ API.
 
 .. _grokcore.component: http://pypi.python.org/pypi/grokcore.component
-
-

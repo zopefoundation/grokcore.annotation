@@ -12,6 +12,7 @@ long_description = (
 
 tests_require = [
     'zope.configuration',
+    'zope.schema',
     'zope.testing',
     ]
 
@@ -44,9 +45,11 @@ setup(
         'martian',
         'setuptools',
         'zope.annotation',
+        'zope.cachedescriptors',
         'zope.component',
         'zope.container',
         'zope.interface',
+        'zope.location',
         ],
     tests_require=tests_require,
     extras_require={'test': tests_require},
