@@ -19,7 +19,7 @@ import persistent
 import zope.annotation.interfaces
 import zope.cachedescriptors.property
 
-from zope.interface import implements
+from zope.interface import implementer
 from zope.location import Location
 from zope.annotation.interfaces import IAnnotations
 from grokcore.annotation.interfaces import IAnnotationFactory
@@ -89,8 +89,8 @@ class LazyAnnotation(Location):
         return getattr(storage, key, default)
 
 
+@implementer(IAnnotationFactory)
 class LazyAnnotationFactory(object):
-    implements(IAnnotationFactory)
 
     def __init__(self, factory, name):
         self.factory = factory

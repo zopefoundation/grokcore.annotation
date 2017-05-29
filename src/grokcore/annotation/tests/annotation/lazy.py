@@ -9,14 +9,14 @@ We can adapt a model to an annotation interface and obtain a value for
 its attributes:
 
   >>> lazyannotation = ILazy(manfred)
-  >>> lazyannotation.lazy_attribute
-  u'lazily waiting for a value.'
+  >>> str(lazyannotation.lazy_attribute)
+  'lazily waiting for a value.'
 
 Note how just "getting" the annotation attribute's default value (as no
 explicit value has been set before for this attribute), does not create
 a new annotation objects:
 
-  >>> print manfred.__dict__
+  >>> print(manfred.__dict__)
   {}
 
 If nothing was explicitly set before, we still can query for the annotation
@@ -29,10 +29,10 @@ When setting an explicit value for the attribute on the annotations, we
 actually do store a new annotation object:
 
   >>> lazyannotation.lazy_attribute = u'We have a value!'
-  >>> print manfred.__dict__
+  >>> print(manfred.__dict__)
   {'__annotations__': <...OOBTree object at ...>}
 
-  >>> print list(manfred.__dict__['__annotations__'].keys())
+  >>> print(list(manfred.__dict__['__annotations__'].keys()))
   ['lazy.annotation.custom.name']
 
 Now the queryAnnotation will indeed return the annotations object:
@@ -40,8 +40,8 @@ Now the queryAnnotation will indeed return the annotations object:
   >>> grok.queryAnnotation(manfred, ILazy)
   <...Lazy object at ...>
 
-  >>> grok.queryAnnotation(manfred, ILazy).lazy_attribute
-  u'We have a value!'
+  >>> str(grok.queryAnnotation(manfred, ILazy).lazy_attribute)
+  'We have a value!'
 
 We can also delete the lazy annotation and the previously stored annotation
 now is gone:
@@ -49,17 +49,17 @@ now is gone:
   >>> grok.deleteAnnotation(manfred, ILazy)
   True
 
-  >>> print manfred.__dict__
+  >>> print(manfred.__dict__)
   {'__annotations__': <...OOBTree object at ...>}
 
-  >>> print list(manfred.__dict__['__annotations__'].keys())
+  >>> print(list(manfred.__dict__['__annotations__'].keys()))
   []
 
 Note how the default schema value for the lazy attribute still "responds":
 
   >>> lazyannotation = ILazy(manfred)
-  >>> lazyannotation.lazy_attribute
-  u'lazily waiting for a value.'
+  >>> str(lazyannotation.lazy_attribute)
+  'lazily waiting for a value.'
 
 """
 
