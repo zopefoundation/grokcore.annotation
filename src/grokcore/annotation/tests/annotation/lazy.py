@@ -61,6 +61,42 @@ Note how the default schema value for the lazy attribute still "responds":
   >>> str(lazyannotation.lazy_attribute)
   'lazily waiting for a value.'
 
+Now we do some testing for internal details to get all lines covered:
+
+  >>> try:
+  ...     lazyannotation.lazy_readonly_attribute = u'foo'
+  ... except ValueError as e:
+  ...     pass
+  >>> str(e)
+  "('lazy_readonly_attribute', 'field is readonly')"
+
+  >>> Lazy.lazy_attribute
+  <...LazyAnnotationProperty object at ...>
+
+  >>> str(Lazy.lazy_attribute.title)
+  'So, so lazy'
+
+  >>> ellie = Mammoth()
+  >>> ellie_annotation = _IFauxLazy(ellie)
+  >>> try:
+  ...     ellie_annotation.testing
+  ... except AttributeError as e:
+  ...     pass
+  >>> str(e)
+  'testing'
+
+  >>> peaches = Mammoth()
+  >>> peaches_annotation = IIncorrect(peaches)
+  >>> try:
+  ...     peaches_annotation.testing = 'foo'
+  ... except ValueError as e:
+  ...     pass
+  >>> str(e)
+  "('testing', 'invalid context')"
+
+  >>> grok.deleteAnnotation(ellie, ILazy)
+  False
+
 """
 
 import grokcore.annotation as grok
@@ -78,6 +114,11 @@ class ILazy(interface.Interface):
     lazy_attribute = schema.TextLine(
         title=u'So, so lazy', default=u'lazily waiting for a value.')
 
+    lazy_readonly_attribute = schema.TextLine(
+        title=u'So, so lazy, but readonly',
+        default=u'no writing here',
+        readonly=True)
+
 
 class Lazy(grok.LazyAnnotation):
     grok.implements(ILazy)
@@ -86,3 +127,37 @@ class Lazy(grok.LazyAnnotation):
 
     lazy_attribute = grok.LazyAnnotationProperty(
         ILazy['lazy_attribute'])
+
+    lazy_readonly_attribute = grok.LazyAnnotationProperty(
+        ILazy['lazy_readonly_attribute'])
+
+
+# Fixtures for tests for internal details
+
+class _FauxField(object):
+
+    def bind(self, other):
+        return self
+
+
+class _IFauxLazy(interface.Interface):
+    pass
+
+
+class FauxLazy(grok.LazyAnnotation):
+    grok.implements(_IFauxLazy)
+    grok.provides(_IFauxLazy)
+
+    testing = grok.LazyAnnotationProperty(_FauxField(), 'testing')
+
+
+class IIncorrect(interface.Interface):
+
+    testing = schema.TextLine(title=u'testing')
+
+
+class IncorrectAnnotation(grok.Annotation):
+    grok.implements(IIncorrect)
+    grok.provides(IIncorrect)
+
+    testing = grok.LazyAnnotationProperty(IIncorrect['testing'])
