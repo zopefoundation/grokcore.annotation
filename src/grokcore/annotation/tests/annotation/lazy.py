@@ -66,8 +66,7 @@ Now we do some testing for internal details to get all lines covered:
   >>> try:
   ...     lazyannotation.lazy_readonly_attribute = u'foo'
   ... except ValueError as e:
-  ...     pass
-  >>> str(e)
+  ...     str(e)
   "('lazy_readonly_attribute', 'field is readonly')"
 
   >>> Lazy.lazy_attribute
@@ -81,8 +80,7 @@ Now we do some testing for internal details to get all lines covered:
   >>> try:
   ...     ellie_annotation.testing
   ... except AttributeError as e:
-  ...     pass
-  >>> str(e)
+  ...     str(e)
   'testing'
 
   >>> peaches = Mammoth()
@@ -90,8 +88,7 @@ Now we do some testing for internal details to get all lines covered:
   >>> try:
   ...     peaches_annotation.testing = 'foo'
   ... except ValueError as e:
-  ...     pass
-  >>> str(e)
+  ...     str(e)
   "('testing', 'invalid context')"
 
   >>> grok.deleteAnnotation(ellie, ILazy)
