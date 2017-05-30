@@ -12,6 +12,7 @@ long_description = (
 
 tests_require = [
     'zope.configuration',
+    'zope.schema',
     'zope.testing > 4.6',
     'zope.testrunner',
     ]
@@ -52,9 +53,11 @@ setup(
         'martian',
         'setuptools',
         'zope.annotation',
+        'zope.cachedescriptors',
         'zope.component',
         'zope.container',
         'zope.interface',
+        'zope.location',
         ],
     tests_require=tests_require,
     test_suite='grokcore.annotation.tests.test_grok.test_suite',

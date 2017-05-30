@@ -20,7 +20,14 @@ from zope import interface
 class IBaseClasses(interface.Interface):
     """grokcore.annotation base classes.
     """
-    Annotation = interface.Attribute("Base class for persistent annotations.")
+    Annotation = interface.Attribute(
+        "Base class for persistent annotations.")
+
+    LazyAnnotation = interface.Attribute(
+        "Base class for lazily persisted annotations.")
+
+    LazyAnnotationProperty = interface.Attribute(
+        "Base class for schema attributes defined on lazy annotations.")
 
 
 class IAnnotationFactory(interface.Interface):

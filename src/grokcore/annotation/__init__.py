@@ -20,6 +20,8 @@ from grokcore.annotation.components import Annotation, Model
 from grokcore.annotation.components import queryAnnotation
 from grokcore.annotation.components import deleteAnnotation
 
+from grokcore.annotation.lazy import LazyAnnotation, LazyAnnotationProperty
+
 # BBB These two functions are meant for test fixtures and should be
 # imported from grok.testing, not from grok.
 from grokcore.annotation.testing import grok

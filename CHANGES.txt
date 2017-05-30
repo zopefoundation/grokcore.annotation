@@ -4,6 +4,8 @@ Changes
 2.0 (unreleased)
 ----------------
 
+- Add LazyAnnotation and LazyAnnotationProperty.
+
 - Drop support of Python 2.6 and claim support for Python 3.4, 3.5, 3.6 and PyPy.
 
 
@@ -11,7 +13,6 @@ Changes
 ------------------
 
 - Update tests.
-
 
 1.5 (2014-10-20)
 ----------------
