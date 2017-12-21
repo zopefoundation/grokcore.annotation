@@ -1,21 +1,24 @@
 from setuptools import setup, find_packages
-import os
 
-def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
+def read(name):
+    """Read a file."""
+    with open(name) as f:
+        return f.read()
+
 
 long_description = (
     read('README.rst')
     + '\n' +
     read('CHANGES.rst')
-    )
+)
 
 tests_require = [
     'zope.configuration',
     'zope.schema',
     'zope.testing > 4.6',
     'zope.testrunner',
-    ]
+]
 
 
 setup(
@@ -58,8 +61,8 @@ setup(
         'zope.container',
         'zope.interface',
         'zope.location',
-        ],
+    ],
     tests_require=tests_require,
     test_suite='grokcore.annotation.tests.test_grok.test_suite',
     extras_require={'test': tests_require},
-    )
+)
