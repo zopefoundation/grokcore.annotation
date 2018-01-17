@@ -117,8 +117,8 @@ class ILazy(interface.Interface):
         readonly=True)
 
 
+@grok.implementer(ILazy)
 class Lazy(grok.LazyAnnotation):
-    grok.implements(ILazy)
     grok.name('lazy.annotation.custom.name')
     grok.provides(ILazy)
 
@@ -141,8 +141,8 @@ class _IFauxLazy(interface.Interface):
     pass
 
 
+@grok.implementer(_IFauxLazy)
 class FauxLazy(grok.LazyAnnotation):
-    grok.implements(_IFauxLazy)
     grok.provides(_IFauxLazy)
 
     testing = grok.LazyAnnotationProperty(_FauxField(), 'testing')
@@ -153,8 +153,8 @@ class IIncorrect(interface.Interface):
     testing = schema.TextLine(title=u'testing')
 
 
+@grok.implementer(IIncorrect)
 class IncorrectAnnotation(grok.Annotation):
-    grok.implements(IIncorrect)
     grok.provides(IIncorrect)
 
     testing = grok.LazyAnnotationProperty(IIncorrect['testing'])
