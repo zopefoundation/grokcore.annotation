@@ -86,8 +86,8 @@ class IBranding(interface.Interface):
     def getBrands():
         """Return a list of brands."""
 
+@grok.implementer(IBranding)
 class Branding(grok.Annotation):
-    grok.implements(IBranding)
 
     def __init__(self):
         self._brands = OOTreeSet()
