@@ -52,10 +52,11 @@ class IImplicitName(interface.Interface):
     pass
 
 
+@grok.implementer(IExplicitName)
 class ExplicitName(grok.Annotation):
-    grok.implements(IExplicitName)
     grok.name('mammoth.branding')
 
 
+@grok.implementer(IImplicitName)
 class ImplicitName(grok.Annotation):
-    grok.implements(IImplicitName)
+    pass
