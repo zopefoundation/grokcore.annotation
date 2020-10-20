@@ -15,6 +15,7 @@
 """
 from martian import util
 from grokcore.annotation.components import AnnotationFactory
+from grokcore.annotation.lazy import LazyAnnotationFactory
 from zope.interface import implementedBy
 import grokcore.annotation
 import martian
@@ -44,6 +45,26 @@ class AnnotationGrokker(martian.ClassGrokker):
 
     def execute(self, factory, config, adapter_context, provides, name, **kw):
         factory = AnnotationFactory(factory, name)
+        config.action(
+            discriminator=('adapter', adapter_context, provides, ''),
+            callable=grokcore.component.provideAdapter,
+            args=(factory, (adapter_context,), provides, ''),
+            )
+        return True
+
+
+class LazyAnnotationGrokker(martian.ClassGrokker):
+    """Grokker for components subclassed from `grok.LazyAnnotation`.
+    """
+    martian.component(grokcore.annotation.LazyAnnotation)
+    martian.directive(grokcore.annotation.context, name='adapter_context')
+    martian.directive(grokcore.annotation.provides,
+                      get_default=default_annotation_provides)
+    martian.directive(grokcore.annotation.name,
+                      get_default=default_annotation_name)
+
+    def execute(self, factory, config, adapter_context, provides, name, **kw):
+        factory = LazyAnnotationFactory(factory, name)
         config.action(
             discriminator=('adapter', adapter_context, provides, ''),
             callable=grokcore.component.provideAdapter,

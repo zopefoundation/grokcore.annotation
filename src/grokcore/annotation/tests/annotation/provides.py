@@ -35,6 +35,6 @@ class IAnotherOne(interface.Interface):
     pass
 
 
+@grok.implementer(IOneInterface, IAnotherOne)
 class MammothAnnotation(grok.Annotation):
-    grok.implements(IOneInterface, IAnotherOne)
     grok.provides(IOneInterface)

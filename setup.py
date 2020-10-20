@@ -1,25 +1,29 @@
 from setuptools import setup, find_packages
-import os
 
-def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
+def read(name):
+    """Read a file."""
+    with open(name) as f:
+        return f.read()
+
 
 long_description = (
-    read('README.txt')
+    read('README.rst')
     + '\n' +
-    read('CHANGES.txt')
-    )
+    read('CHANGES.rst')
+)
 
 tests_require = [
     'zope.configuration',
+    'zope.schema',
     'zope.testing > 4.6',
     'zope.testrunner',
-    ]
+]
 
 
 setup(
     name='grokcore.annotation',
-    version='1.6.dev0',
+    version='3.0.2.dev0',
     author='Grok Team',
     author_email='grok-dev@zope.org',
     url='http://grok.zope.org',
@@ -39,7 +43,7 @@ setup(
                  'Programming Language :: Python :: 3.6',
                  'Programming Language :: Python :: Implementation :: CPython',
                  'Programming Language :: Python :: Implementation :: PyPy',
-                 'Framework :: Zope3',
+                 'Framework :: Zope :: 3',
                  ],
 
     packages=find_packages('src'),
@@ -52,11 +56,13 @@ setup(
         'martian',
         'setuptools',
         'zope.annotation',
+        'zope.cachedescriptors',
         'zope.component',
         'zope.container',
         'zope.interface',
-        ],
+        'zope.location',
+    ],
     tests_require=tests_require,
     test_suite='grokcore.annotation.tests.test_grok.test_suite',
     extras_require={'test': tests_require},
-    )
+)

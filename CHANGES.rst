@@ -1,17 +1,34 @@
 Changes
 =======
 
-2.0 (unreleased)
+3.0.2 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
+3.0.1 (2018-01-17)
+------------------
+
+- Replace the use of `grok.implements()` with the `@grok.implementer()`
+  directive throughout.
+
+3.0.0 (2018-01-12)
+------------------
+
+- Rearrange tests such that Travis CI can pick up all functional tests too.
+
+1.6 (2017-05-30)
 ----------------
 
-- Drop support of Python 2.6 and claim support for Python 3.4, 3.5, 3.6 and PyPy.
+- Add LazyAnnotation and LazyAnnotationProperty.
 
+- Drop support of Python 2.6 and claim support for Python 3.4, 3.5, 3.6 and PyPy.
 
 1.5.1 (2016-01-29)
 ------------------
 
 - Update tests.
-
 
 1.5 (2014-10-20)
 ----------------
