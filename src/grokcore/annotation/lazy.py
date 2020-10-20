@@ -16,11 +16,13 @@
 """
 
 import persistent
+from zope import event
 import zope.annotation.interfaces
 import zope.cachedescriptors.property
 
 from zope.interface import implementer
 from zope.location import Location
+from zope.schema.fieldproperty import FieldUpdatedEvent
 from zope.annotation.interfaces import IAnnotations
 from grokcore.annotation.interfaces import IAnnotationFactory
 
@@ -57,7 +59,9 @@ class LazyAnnotationProperty(object):
         if field.readonly:
             raise ValueError(self.__name, 'field is readonly')
         field.validate(value)
+        old_value = inst._load(self.__name, None)
         inst._store(self.__name, value)
+        event.notify(FieldUpdatedEvent(inst, field, old_value, value))
 
     def __getattr__(self, name):
         return getattr(self.__field, name)
