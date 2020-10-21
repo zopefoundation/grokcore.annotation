@@ -94,6 +94,18 @@ Now we do some testing for internal details to get all lines covered:
   >>> grok.deleteAnnotation(ellie, ILazy)
   False
 
+  >>> from zope.event import subscribers
+  >>> from zope.schema.fieldproperty import FieldUpdatedEvent
+  >>> event_log = []
+  >>> subscribers.append(event_log.append)
+  >>> lazyannotation.lazy_attribute = u"new value"
+  >>> (event_log[0].old_value, event_log[0].new_value)
+  (None, 'new value')
+  >>> event_log[0].inst is lazyannotation
+  True
+  >>> event_log[0].field.__name__
+  'lazy_attribute'
+
 """
 
 import grokcore.annotation as grok
