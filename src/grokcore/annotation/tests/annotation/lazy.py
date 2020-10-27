@@ -94,6 +94,20 @@ Now we do some testing for internal details to get all lines covered:
   >>> grok.deleteAnnotation(ellie, ILazy)
   False
 
+  >>> from zope.event import subscribers
+  >>> from zope.schema.fieldproperty import FieldUpdatedEvent
+  >>> event_log = []
+  >>> subscribers.append(event_log.append)
+  >>> lazyannotation.lazy_attribute = u"new value"
+  >>> len(event_log)
+  1
+  >>> (str(event_log[0].old_value), str(event_log[0].new_value))
+  ('lazily waiting for a value.', 'new value')
+  >>> event_log[0].inst is lazyannotation
+  True
+  >>> event_log[0].field.__name__
+  'lazy_attribute'
+
 """
 
 import grokcore.annotation as grok
@@ -109,7 +123,8 @@ class Mammoth(grok.Model):
 class ILazy(interface.Interface):
 
     lazy_attribute = schema.TextLine(
-        title=u'So, so lazy', default=u'lazily waiting for a value.')
+        title=u'So, so lazy',
+        default=u'lazily waiting for a value.')
 
     lazy_readonly_attribute = schema.TextLine(
         title=u'So, so lazy, but readonly',

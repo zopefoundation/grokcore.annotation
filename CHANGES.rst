@@ -4,7 +4,8 @@ Changes
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add support for `FieldUpdatedEvent` in `LazyPropertyAnnotation` to
+  mirror the behavior of zope.schema.
 
 
 3.0.1 (2018-01-17)
