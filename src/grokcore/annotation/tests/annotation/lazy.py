@@ -99,8 +99,10 @@ Now we do some testing for internal details to get all lines covered:
   >>> event_log = []
   >>> subscribers.append(event_log.append)
   >>> lazyannotation.lazy_attribute = u"new value"
+  >>> len(event_log)
+  1
   >>> (event_log[0].old_value, event_log[0].new_value)
-  (None, 'new value')
+  ('lazily waiting for a value.', 'new value')
   >>> event_log[0].inst is lazyannotation
   True
   >>> event_log[0].field.__name__
@@ -121,7 +123,8 @@ class Mammoth(grok.Model):
 class ILazy(interface.Interface):
 
     lazy_attribute = schema.TextLine(
-        title=u'So, so lazy', default=u'lazily waiting for a value.')
+        title=u'So, so lazy',
+        default=u'lazily waiting for a value.')
 
     lazy_readonly_attribute = schema.TextLine(
         title=u'So, so lazy, but readonly',

@@ -22,7 +22,7 @@ import zope.cachedescriptors.property
 
 from zope.interface import implementer
 from zope.location import Location
-from zope.schema.fieldproperty import FieldUpdatedEvent
+from zope.schema.fieldproperty import FieldUpdatedEvent, NO_VALUE
 from zope.annotation.interfaces import IAnnotations
 from grokcore.annotation.interfaces import IAnnotationFactory
 
@@ -51,6 +51,13 @@ class LazyAnnotationProperty(object):
 
         return value
 
+    def queryValue(self, inst, default):
+        value = inst._load(self.__name, _marker)
+        if value is _marker:
+            field = self.__field.bind(inst)
+            value = getattr(field, 'default', _marker)
+        return value
+
     def __set__(self, inst, value):
         if not isinstance(inst, LazyAnnotation):
             raise ValueError(self.__name, 'invalid context')
@@ -59,7 +66,7 @@ class LazyAnnotationProperty(object):
         if field.readonly:
             raise ValueError(self.__name, 'field is readonly')
         field.validate(value)
-        old_value = inst._load(self.__name, None)
+        old_value = self.queryValue(inst, NO_VALUE)
         inst._store(self.__name, value)
         event.notify(FieldUpdatedEvent(inst, field, old_value, value))
 
