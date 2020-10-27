@@ -101,7 +101,7 @@ Now we do some testing for internal details to get all lines covered:
   >>> lazyannotation.lazy_attribute = u"new value"
   >>> len(event_log)
   1
-  >>> (event_log[0].old_value, event_log[0].new_value)
+  >>> (str(event_log[0].old_value), str(event_log[0].new_value))
   ('lazily waiting for a value.', 'new value')
   >>> event_log[0].inst is lazyannotation
   True
