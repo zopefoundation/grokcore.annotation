@@ -1,8 +1,8 @@
 Changes
 =======
 
-3.0.2 (unreleased)
-------------------
+3.1 (2020-10-27)
+----------------
 
 - Add support for `FieldUpdatedEvent` in `LazyPropertyAnnotation` to
   mirror the behavior of zope.schema.
