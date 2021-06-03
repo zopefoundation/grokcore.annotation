@@ -78,6 +78,7 @@ from BTrees.OOBTree import OOTreeSet
 class Mammoth(grok.Model):
     pass
 
+
 class IBranding(interface.Interface):
 
     def addBrand(brand):
@@ -85,6 +86,7 @@ class IBranding(interface.Interface):
 
     def getBrands():
         """Return a list of brands."""
+
 
 @grok.implementer(IBranding)
 class Branding(grok.Annotation):

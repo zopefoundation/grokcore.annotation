@@ -33,8 +33,7 @@ And the name is stored in __name__:
   >>> ann.__name__
   'mammoth.branding'
 
-
-"""
+"""  # noqa: E501 line too long
 
 import grokcore.annotation as grok
 from zope import interface

@@ -22,7 +22,7 @@ checker = renormalizing.RENormalizing([
     (re.compile(
         r"ConfigurationExecutionError: <class '([\w.]+)'>:"),
         r'ConfigurationExecutionError: \1:'),
-    ])
+])
 
 
 def suiteFromPackage(name):
@@ -46,7 +46,7 @@ def suiteFromPackage(name):
                 doctest.ELLIPSIS +
                 doctest.NORMALIZE_WHITESPACE +
                 renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2)
-            )
+        )
 
         suite.addTest(test)
     return suite
@@ -57,6 +57,3 @@ def test_suite():
     for name in ['annotation', ]:
         suite.addTest(suiteFromPackage(name))
     return suite
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')

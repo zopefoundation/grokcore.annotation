@@ -49,7 +49,7 @@ class AnnotationGrokker(martian.ClassGrokker):
             discriminator=('adapter', adapter_context, provides, ''),
             callable=grokcore.component.provideAdapter,
             args=(factory, (adapter_context,), provides, ''),
-            )
+        )
         return True
 
 
@@ -69,5 +69,5 @@ class LazyAnnotationGrokker(martian.ClassGrokker):
             discriminator=('adapter', adapter_context, provides, ''),
             callable=grokcore.component.provideAdapter,
             args=(factory, (adapter_context,), provides, ''),
-            )
+        )
         return True

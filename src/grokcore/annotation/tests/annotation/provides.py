@@ -16,8 +16,7 @@ It can then be looked up only using that one interface:
   Traceback (most recent call last):
   TypeError: ('Could not adapt', <grokcore.annotation.tests.annotation.provides.Mammoth object at ...>, <InterfaceClass grokcore.annotation.tests.annotation.provides.IAnotherOne>)
 
-
-"""
+"""  # noqa: E501 line too long
 
 import grokcore.annotation as grok
 from zope import interface
