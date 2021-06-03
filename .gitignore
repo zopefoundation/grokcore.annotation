@@ -1,14 +1,29 @@
-__pycache__
+# Generated from:
+# https://github.com/zopefoundation/meta/tree/master/config/pure-python
+*.egg-info/
+*.profraw
+*.pyc
+*.pyo
 .coverage
 .coverage.*
+.eggs/
 .installed.cfg
+.mr.developer.cfg
 .tox/
-*.pyc
-bin
-develop-eggs
-htmlcov/
+.vscode/
+__pycache__/
+bin/
+build/
+coverage.xml
+develop-eggs/
+develop/
+dist/
+docs/_build
+eggs/
+etc/
 lib/
-parts
-pip-selfcheck.json
+lib64
+log/
+parts/
 pyvenv.cfg
-src/*.egg-info
+var/
