@@ -8,12 +8,14 @@ be looked up with:
   ...
   martian.error.GrokError: <class 'grokcore.annotation.tests.annotation.implementsnone.Branding'> must implement at least one interface (use grok.implements to specify).
 
-"""
+"""  # noqa: E501 line too long
 
 import grokcore.annotation as grok
 
+
 class Mammoth(grok.Model):
     pass
+
 
 class Branding(grok.Annotation):
     pass

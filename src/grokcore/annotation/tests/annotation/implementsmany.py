@@ -7,19 +7,23 @@ be registered for.  Ambiguities lead to errors:
   Traceback (most recent call last):
   ...
   martian.error.GrokError: <class 'grokcore.annotation.tests.annotation.implementsmany.MammothAnnotations'> is implementing more than one interface (use grok.provides to specify which one to use).
-"""
+"""  # noqa: E501 line too long
 
 import grokcore.annotation as grok
 from zope import interface
 
+
 class Mammoth(grok.Model):
     pass
+
 
 class IOneInterface(interface.Interface):
     pass
 
+
 class IAnotherInterface(interface.Interface):
     pass
+
 
 @grok.implementer(IOneInterface, IAnotherInterface)
 class MammothAnnotations(grok.Annotation):
