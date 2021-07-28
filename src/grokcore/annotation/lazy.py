@@ -99,18 +99,18 @@ class LazyAnnotation(Location):
             return default
         return getattr(storage, key, default)
 
-    # @property
-    # def _p_changed(self):
-    #     storage = self.storage
-    #     if storage is None:
-    #         return False
-    #     return storage._p_changed
+    @property
+    def _p_changed(self):
+        storage = self.storage
+        if storage is None:
+            return False
+        return storage._p_changed
 
-    # @_p_changed.setter
-    # def _p_changed(self, value):
-    #     storage = self.storage
-    #     if storage is not None:
-    #         storage._p_changed = value
+    @_p_changed.setter
+    def _p_changed(self, value):
+        storage = self.storage
+        if storage is not None:
+            storage._p_changed = value
 
 
 @implementer(IAnnotationFactory)
