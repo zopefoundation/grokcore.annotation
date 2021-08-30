@@ -46,17 +46,23 @@ Now the queryAnnotation will indeed return the annotations object:
 One might expect to be able to explicitely mark the annotation as modified
 (for example when the property is a sequence or mapping that is modified).
 Flagging the annotation as modiffied should be properly delegated to the
-underlying persisten storage object:
+underlying persistent storage object:
 
-  >>> annotation_object = grok.queryAnnotation(manfred, ILazy)
+  >>> annotation_object = ILazy(manfred)
   >>> annotation_object.storage is not None
   True
 
+  >>> from persistent.tests.utils import TrivialJar
+  >>> annotation_object.storage._p_jar = TrivialJar()
   >>> annotation_object._p_changed
   False
 
-# XXX if someone knows a way to reliably test setting the _p_changed and
-# reading it back in this test let me know...
+  >>> annotation_object.storage._p_changed
+  False
+
+  >>> annotation_object._p_changed = True
+  >>> annotation_object.storage._p_changed
+  True
 
 We can also delete the lazy annotation and the previously stored annotation
 now is gone:
