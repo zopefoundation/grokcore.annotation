@@ -18,6 +18,7 @@ tests_require = [
     'zope.schema',
     'zope.testing > 4.6',
     'zope.testrunner',
+    'ZODB'
 ]
 
 
