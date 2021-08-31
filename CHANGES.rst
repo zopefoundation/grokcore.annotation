@@ -4,6 +4,11 @@ Changes
 3.2 (unreleased)
 ----------------
 
+- Add ``_p_changed`` property to the LazyAnnotation object, proxying it to
+  the actual Storage object. That way the "API" for explicitely marking
+  objects as changed is the same regaredless of a "normal" annotation object
+  or an lazy annotation object.
+
 - Add support for Python 3.7, 3.8 and 3.9.
 
 - Drop support for Python 3.4.
