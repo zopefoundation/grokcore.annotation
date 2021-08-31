@@ -4,6 +4,9 @@ Changes
 3.2 (unreleased)
 ----------------
 
+- ``grokcore.annotation.testing.warn`` was removed as it was not used
+  internally. If you still need it, a copy is in ``grokcore.view.testing``.
+
 - Add ``_p_changed`` property to the LazyAnnotation object, proxying it to
   the actual Storage object. That way the "API" for explicitely marking
   objects as changed is the same regaredless of a "normal" annotation object

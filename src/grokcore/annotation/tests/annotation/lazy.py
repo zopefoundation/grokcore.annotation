@@ -64,6 +64,25 @@ underlying persistent storage object:
   >>> annotation_object.storage._p_changed
   True
 
+To increase test coverage we test some edge cases:
+
+   >>> moomoo = Mammoth()
+   >>> lazy_anno = ILazy(moomoo)
+   >>> lazy_anno._p_changed
+   False
+
+  >>> lazy_anno._p_changed = True
+  >>> lazy_anno._p_changed
+  False
+
+  >>> lazy_anno.lazy_attribute = u'foobar'
+  >>> str(lazy_anno.lazy_attribute)
+  'foobar'
+
+  >>> lazy_anno.lazy_attribute = u'bazqux'
+  >>> str(lazy_anno.lazy_attribute)
+  'bazqux'
+
 We can also delete the lazy annotation and the previously stored annotation
 now is gone:
 
