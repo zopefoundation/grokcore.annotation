@@ -1,7 +1,7 @@
 Changes
 =======
 
-3.2 (unreleased)
+3.2 (2021-08-31)
 ----------------
 
 - ``grokcore.annotation.testing.warn`` was removed as it was not used
