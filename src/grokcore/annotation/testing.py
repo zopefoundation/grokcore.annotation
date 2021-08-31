@@ -14,7 +14,6 @@
 """Grok test helpers
 """
 from __future__ import print_function
-import sys
 from zope.configuration.config import ConfigurationMachine
 from grokcore.component import zcml
 # Provide this import here for BBB reasons:
