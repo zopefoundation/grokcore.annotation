@@ -76,11 +76,11 @@ To increase test coverage we test some edge cases:
   False
 
   >>> lazy_anno.lazy_attribute = u'foobar'
-  >>> lazy_anno.lazy_attribute
+  >>> str(lazy_anno.lazy_attribute)
   'foobar'
 
   >>> lazy_anno.lazy_attribute = u'bazqux'
-  >>> lazy_anno.lazy_attribute
+  >>> str(lazy_anno.lazy_attribute)
   'bazqux'
 
 We can also delete the lazy annotation and the previously stored annotation
