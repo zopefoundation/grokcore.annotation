@@ -75,11 +75,11 @@ To increase test coverage we test some edge cases:
   >>> lazy_anno._p_changed
   False
 
-  >>> lazy_anno.lazy_attribute = 'foobar'
+  >>> lazy_anno.lazy_attribute = u'foobar'
   >>> lazy_anno.lazy_attribute
   'foobar'
 
-  >>> lazy_anno.lazy_attribute = 'bazqux'
+  >>> lazy_anno.lazy_attribute = u'bazqux'
   >>> lazy_anno.lazy_attribute
   'bazqux'
 
