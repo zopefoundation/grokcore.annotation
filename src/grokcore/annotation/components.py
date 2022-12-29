@@ -15,14 +15,15 @@
 
 """
 
-from zope.annotation.interfaces import IAttributeAnnotatable
+import grokcore.component
+import persistent
 from zope.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.component import getSiteManager
 from zope.container import contained
 from zope.interface import providedBy
-from zope.component import getSiteManager
+
 from grokcore.annotation.interfaces import IAnnotationFactory
-import persistent
-import grokcore.component
 
 
 @grokcore.component.implementer(IAttributeAnnotatable)
@@ -39,7 +40,7 @@ class Annotation(persistent.Persistent, contained.Contained):
 
 
 @grokcore.component.implementer(IAnnotationFactory)
-class AnnotationFactory(object):
+class AnnotationFactory:
 
     def __init__(self, factory, name):
         self.factory = factory

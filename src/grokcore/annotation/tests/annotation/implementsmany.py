@@ -9,8 +9,9 @@ be registered for.  Ambiguities lead to errors:
   martian.error.GrokError: <class 'grokcore.annotation.tests.annotation.implementsmany.MammothAnnotations'> is implementing more than one interface (use grok.provides to specify which one to use).
 """  # noqa: E501 line too long
 
-import grokcore.annotation as grok
 from zope import interface
+
+import grokcore.annotation as grok
 
 
 class Mammoth(grok.Model):

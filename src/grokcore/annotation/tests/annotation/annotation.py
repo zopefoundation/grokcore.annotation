@@ -70,9 +70,10 @@ If you want to delete a non-matching annotation you get False:
 
 """
 
-import grokcore.annotation as grok
-from zope import interface
 from BTrees.OOBTree import OOTreeSet
+from zope import interface
+
+import grokcore.annotation as grok
 
 
 class Mammoth(grok.Model):

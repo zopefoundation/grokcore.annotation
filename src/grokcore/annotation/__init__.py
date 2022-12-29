@@ -15,19 +15,20 @@
 """
 
 from grokcore.component import *
+from zope.interface import moduleProvides
 
-from grokcore.annotation.components import Annotation, Model
-from grokcore.annotation.components import queryAnnotation
+from grokcore.annotation.components import Annotation
+from grokcore.annotation.components import Model
 from grokcore.annotation.components import deleteAnnotation
-
-from grokcore.annotation.lazy import LazyAnnotation, LazyAnnotationProperty
-
+from grokcore.annotation.components import queryAnnotation
+# Our __init__ provides the grok API directly so using 'import grok' is enough.
+from grokcore.annotation.interfaces import IGrokcoreAnnotationAPI
+from grokcore.annotation.lazy import LazyAnnotation
+from grokcore.annotation.lazy import LazyAnnotationProperty
 # BBB These two functions are meant for test fixtures and should be
 # imported from grok.testing, not from grok.
 from grokcore.annotation.testing import grok
 
-# Our __init__ provides the grok API directly so using 'import grok' is enough.
-from grokcore.annotation.interfaces import IGrokcoreAnnotationAPI
-from zope.interface import moduleProvides
+
 moduleProvides(IGrokcoreAnnotationAPI)
 __all__ = list(IGrokcoreAnnotationAPI)

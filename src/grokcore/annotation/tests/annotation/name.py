@@ -35,8 +35,9 @@ And the name is stored in __name__:
 
 """  # noqa: E501 line too long
 
-import grokcore.annotation as grok
 from zope import interface
+
+import grokcore.annotation as grok
 
 
 class Mammoth(grok.Model):
