@@ -16,15 +16,17 @@
 """
 
 import persistent
-from zope import event
 import zope.annotation.interfaces
 import zope.cachedescriptors.property
-
+from zope import event
+from zope.annotation.interfaces import IAnnotations
 from zope.interface import implementer
 from zope.location import Location
-from zope.schema.fieldproperty import FieldUpdatedEvent, NO_VALUE
-from zope.annotation.interfaces import IAnnotations
+from zope.schema.fieldproperty import NO_VALUE
+from zope.schema.fieldproperty import FieldUpdatedEvent
+
 from grokcore.annotation.interfaces import IAnnotationFactory
+
 
 _marker = object()
 

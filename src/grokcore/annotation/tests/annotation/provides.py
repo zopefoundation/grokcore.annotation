@@ -18,8 +18,9 @@ It can then be looked up only using that one interface:
 
 """  # noqa: E501 line too long
 
-import grokcore.annotation as grok
 from zope import interface
+
+import grokcore.annotation as grok
 
 
 class Mammoth(grok.Model):

@@ -1,4 +1,5 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 
 
 def read(name):
@@ -31,21 +32,20 @@ setup(
     description='Grok-like configuration for Zope annotations',
     long_description=long_description,
     license='ZPL',
-    classifiers=['Environment :: Web Environment',
-                 'Intended Audience :: Developers',
-                 'License :: OSI Approved :: Zope Public License',
-                 'Programming Language :: Python',
-                 'Programming Language :: Python :: 2',
-                 'Programming Language :: Python :: 2.7',
-                 'Programming Language :: Python :: 3',
-                 'Programming Language :: Python :: 3.5',
-                 'Programming Language :: Python :: 3.6',
-                 'Programming Language :: Python :: 3.7',
-                 'Programming Language :: Python :: 3.8',
-                 'Programming Language :: Python :: 3.9',
-                 'Programming Language :: Python :: Implementation :: CPython',
-                 'Programming Language :: Python :: Implementation :: PyPy',
-                 'Framework :: Zope :: 3',
+    classifiers=[
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Zope Public License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
+        'Framework :: Zope :: 3',
                  ],
 
     packages=find_packages('src'),

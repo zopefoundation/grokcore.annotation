@@ -150,10 +150,10 @@ Now we do some testing for internal details to get all lines covered:
 
 """
 
-import grokcore.annotation as grok
-
 from zope import interface
 from zope import schema
+
+import grokcore.annotation as grok
 
 
 class Mammoth(grok.Model):

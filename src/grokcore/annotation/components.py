@@ -15,14 +15,15 @@
 
 """
 
-from zope.annotation.interfaces import IAttributeAnnotatable
+import persistent
 from zope.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.component import getSiteManager
 from zope.container import contained
 from zope.interface import providedBy
-from zope.component import getSiteManager
-from grokcore.annotation.interfaces import IAnnotationFactory
-import persistent
+
 import grokcore.component
+from grokcore.annotation.interfaces import IAnnotationFactory
 
 
 @grokcore.component.implementer(IAttributeAnnotatable)

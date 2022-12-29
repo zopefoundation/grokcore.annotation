@@ -13,12 +13,13 @@
 ##############################################################################
 """Grokkers for Grokcore Annotation component.
 """
+import martian
 from martian import util
+from zope.interface import implementedBy
+
+import grokcore.annotation
 from grokcore.annotation.components import AnnotationFactory
 from grokcore.annotation.lazy import LazyAnnotationFactory
-from zope.interface import implementedBy
-import grokcore.annotation
-import martian
 
 
 def default_annotation_provides(factory, module, **data):
