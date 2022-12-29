@@ -15,6 +15,7 @@
 
 """
 
+import grokcore.component
 import persistent
 from zope.annotation.interfaces import IAnnotations
 from zope.annotation.interfaces import IAttributeAnnotatable
@@ -22,7 +23,6 @@ from zope.component import getSiteManager
 from zope.container import contained
 from zope.interface import providedBy
 
-import grokcore.component
 from grokcore.annotation.interfaces import IAnnotationFactory
 
 
@@ -40,7 +40,7 @@ class Annotation(persistent.Persistent, contained.Contained):
 
 
 @grokcore.component.implementer(IAnnotationFactory)
-class AnnotationFactory(object):
+class AnnotationFactory:
 
     def __init__(self, factory, name):
         self.factory = factory

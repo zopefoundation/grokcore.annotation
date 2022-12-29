@@ -163,12 +163,12 @@ class Mammoth(grok.Model):
 class ILazy(interface.Interface):
 
     lazy_attribute = schema.TextLine(
-        title=u'So, so lazy',
-        default=u'lazily waiting for a value.')
+        title='So, so lazy',
+        default='lazily waiting for a value.')
 
     lazy_readonly_attribute = schema.TextLine(
-        title=u'So, so lazy, but readonly',
-        default=u'no writing here',
+        title='So, so lazy, but readonly',
+        default='no writing here',
         readonly=True)
 
 
@@ -186,7 +186,7 @@ class Lazy(grok.LazyAnnotation):
 
 # Fixtures for tests for internal details
 
-class _FauxField(object):
+class _FauxField:
 
     def bind(self, other):
         return self
@@ -205,7 +205,7 @@ class FauxLazy(grok.LazyAnnotation):
 
 class IIncorrect(interface.Interface):
 
-    testing = schema.TextLine(title=u'testing')
+    testing = schema.TextLine(title='testing')
 
 
 @grok.implementer(IIncorrect)

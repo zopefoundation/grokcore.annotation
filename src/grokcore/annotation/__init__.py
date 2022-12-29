@@ -14,6 +14,7 @@
 """Grokcore.annotation
 """
 
+from grokcore.component import *
 from zope.interface import moduleProvides
 
 from grokcore.annotation.components import Annotation
@@ -27,7 +28,6 @@ from grokcore.annotation.lazy import LazyAnnotationProperty
 # BBB These two functions are meant for test fixtures and should be
 # imported from grok.testing, not from grok.
 from grokcore.annotation.testing import grok
-from grokcore.component import *
 
 
 moduleProvides(IGrokcoreAnnotationAPI)

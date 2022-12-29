@@ -26,7 +26,8 @@ def suiteFromPackage(name):
         if filename == '__init__.py':
             continue
 
-        dottedname = 'grokcore.annotation.tests.%s.%s' % (name, filename[:-3])
+        dottedname = 'grokcore.annotation.tests.{}.{}'.format(
+            name, filename[:-3])
         test = doctest.DocTestSuite(
             dottedname,
             setUp=setUpZope,

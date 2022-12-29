@@ -31,7 +31,7 @@ from grokcore.annotation.interfaces import IAnnotationFactory
 _marker = object()
 
 
-class LazyAnnotationProperty(object):
+class LazyAnnotationProperty:
 
     def __init__(self, field, name=None):
         if name is None:
@@ -116,7 +116,7 @@ class LazyAnnotation(Location):
 
 
 @implementer(IAnnotationFactory)
-class LazyAnnotationFactory(object):
+class LazyAnnotationFactory:
 
     def __init__(self, factory, name):
         self.factory = factory
