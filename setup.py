@@ -24,7 +24,7 @@ tests_require = [
 
 setup(
     name='grokcore.annotation',
-    version='4.1.dev0',
+    version='4.1',
     author='Grok Team',
     author_email='zope-dev@zope.dev',
     url='https://github.com/zopefoundation/grokcore.annotation',
