@@ -1,4 +1,3 @@
-from setuptools import find_packages
 from setuptools import setup
 
 
@@ -18,13 +17,13 @@ tests_require = [
     'zope.configuration',
     'zope.schema',
     'zope.testing > 4.6',
-    'zope.testrunner',
+    'zope.testrunner >= 6.4',
 ]
 
 
 setup(
     name='grokcore.annotation',
-    version='4.2.dev0',
+    version='5.0.dev0',
     author='Grok Team',
     author_email='zope-dev@zope.dev',
     url='https://github.com/zopefoundation/grokcore.annotation',
@@ -46,9 +45,6 @@ setup(
         'Programming Language :: Python :: Implementation :: PyPy',
         'Framework :: Zope :: 3',
     ],
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    namespace_packages=['grokcore'],
     include_package_data=True,
     zip_safe=False,
     python_requires='>=3.9',
