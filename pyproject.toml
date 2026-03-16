@@ -1,12 +1,66 @@
-# Generated from:
-# https://github.com/zopefoundation/meta/tree/master/config/pure-python
-
+# Generated with zope.meta (https://zopemeta.readthedocs.io/) from:
+# https://github.com/zopefoundation/meta/tree/master/src/zope/meta/pure-python
 [build-system]
 requires = [
-    "setuptools == 78.1.1",
+    "setuptools >= 78.1.1,< 81",
     "wheel",
 ]
 build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "grokcore.annotation"
+version = "5.1.dev0"
+description = "Grok-like configuration for Zope annotations"
+license = "ZPL-2.1"
+classifiers = [
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Framework :: Zope :: 3",
+]
+dynamic = ["readme"]
+requires-python = ">=3.10"
+authors = [
+    {name = "Grok Team",email = "zope-dev@zope.dev"},
+]
+maintainers = [
+    {name = "Plone Foundation and contributors",email = "zope-dev@zope.dev"},
+]
+dependencies = [
+    "grokcore.component >= 2.5",
+    "martian",
+    "zope.annotation",
+    "zope.cachedescriptors",
+    "zope.component",
+    "zope.container",
+    "zope.event",
+    "zope.interface",
+    "zope.location",
+    "zope.schema",
+]
+
+[project.optional-dependencies]
+test = [
+    "zope.configuration",
+    "zope.schema",
+    "zope.testing > 4.6",
+    "zope.testrunner >= 6.4",
+]
+
+[project.urls]
+Source = "https://github.com/zopefoundation/grokcore.annotation"
+Issues = "https://github.com/zopefoundation/grokcore.annotation/issues"
+Changelog = "https://raw.githubusercontent.com/zopefoundation/grokcore.annotation/master/CHANGES.rst"
+
 
 [tool.coverage.run]
 branch = true
@@ -30,3 +84,7 @@ exclude_lines = [
 
 [tool.coverage.html]
 directory = "parts/htmlcov"
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst", "CHANGES.rst"]}
+
